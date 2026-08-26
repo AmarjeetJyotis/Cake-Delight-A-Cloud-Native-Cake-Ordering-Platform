@@ -1,0 +1,17 @@
+USE order_db;
+
+CREATE TABLE IF NOT EXISTS basket_items (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cakeId INT NOT NULL,
+    cakeName VARCHAR(100) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    quantity INT NOT NULL,
+    totalPrice DECIMAL(10, 2) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    totalAmount DECIMAL(10, 2) NOT NULL,
+    status VARCHAR(50) DEFAULT 'PLACED',
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

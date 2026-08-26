@@ -1,0 +1,12 @@
+CREATE DATABASE IF NOT EXISTS notification_db;
+
+USE notification_db;
+
+CREATE TABLE IF NOT EXISTS notifications (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    orderId INT NOT NULL,
+    customerName VARCHAR(255) NOT NULL,
+    message TEXT NOT NULL,
+    status VARCHAR(50) DEFAULT 'SENT',
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP
+);

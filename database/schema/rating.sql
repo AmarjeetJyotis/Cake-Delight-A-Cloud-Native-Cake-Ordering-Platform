@@ -1,0 +1,12 @@
+CREATE DATABASE IF NOT EXISTS rating_db;
+
+USE rating_db;
+
+CREATE TABLE IF NOT EXISTS ratings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cakeId INT NOT NULL,
+    userName VARCHAR(255) NOT NULL,
+    rating INT NOT NULL,
+    review TEXT,
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP
+);

@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cake-catalog
+  namespace: cake-delight
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cake-catalog
+  template:
+    metadata:
+      labels:
+        app: cake-catalog
+    spec:
+      containers:
+        - name: cake-catalog
+          image: docker-catalog-service:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5001
+          env:
+            - name: PORT
+              value: "5001"
+            - name: DB_HOST
+              value: "mysql"
+            - name: DB_PORT
+              value: "3306"
+            - name: DB_NAME
+              value: "cake_catalog_db"
+            - name: DB_USER
+              value: "root"
+            - name: DB_PASSWORD
+              value: "Amarjeet@9798"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: catalog-service
+  namespace: cake-delight
+spec:
+  selector:
+    app: cake-catalog
+  ports:
+    - port: 5001
+      targetPort: 5001
+  type: ClusterIP

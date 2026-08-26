@@ -1,0 +1,4815 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    background: #f4f6f9;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* ===========================
+   Header
+=========================== */
+
+header {
+    background: linear-gradient(
+        135deg,
+        #6A0DAD,
+        #A100FF
+    );
+
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 42px;
+    margin-bottom: 8px;
+}
+
+header p {
+    font-size: 18px;
+    opacity: 0.95;
+}
+
+/* ===========================
+   Sections
+=========================== */
+
+.section {
+    width: 95%;
+    margin: 25px auto;
+    background: white;
+    padding: 28px;
+    border-radius: 12px;
+
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.section h2 {
+    color: #6A0DAD;
+    margin-bottom: 22px;
+    font-size: 28px;
+}
+
+/* ===========================
+   Form Rows
+=========================== */
+
+.form-row,
+.search-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* ===========================
+   Inputs
+=========================== */
+
+input,
+textarea,
+select {
+    padding: 13px;
+
+    border: 1px solid #d0d0d0;
+    border-radius: 8px;
+
+    font-size: 15px;
+    outline: none;
+    background: white;
+
+    transition: 0.2s;
+}
+
+input {
+    flex: 1;
+    min-width: 180px;
+}
+
+select {
+    min-width: 180px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #A100FF;
+
+    box-shadow:
+        0 0 0 2px rgba(161, 0, 255, 0.1);
+}
+
+textarea {
+    width: 100%;
+    min-height: 110px;
+    resize: vertical;
+    margin-top: 5px;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+button {
+    background: #A100FF;
+    color: white;
+
+    border: none;
+    padding: 13px 25px;
+
+    border-radius: 8px;
+    cursor: pointer;
+
+    font-size: 15px;
+    transition: 0.2s;
+
+    white-space: nowrap;
+}
+
+button:hover {
+    background: #6A0DAD;
+}
+
+button:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ===========================
+   Search
+=========================== */
+
+.search-row input {
+    min-width: 200px;
+}
+
+/* ===========================
+   Cake Grid
+=========================== */
+
+.cake-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(300px, 1fr)
+        );
+
+    gap: 25px;
+}
+
+/* ===========================
+   Cake Card
+=========================== */
+
+.cake-card {
+    background: white;
+
+    border: 1px solid #e8e8e8;
+    border-radius: 12px;
+
+    padding: 24px;
+
+    transition: 0.2s;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.cake-card:hover {
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.cake-card h3 {
+    color: #5f6870;
+
+    margin-bottom: 14px;
+
+    font-size: 22px;
+}
+
+.cake-card p {
+    margin-bottom: 10px;
+}
+
+.cake-card button {
+    margin-top: 8px;
+}
+
+/* ===========================
+   Cake Actions
+=========================== */
+
+.cake-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 15px;
+
+    flex-wrap: wrap;
+}
+
+.cake-actions button {
+    margin-top: 0;
+}
+
+.delete-button {
+    background: #dc3545;
+}
+
+.delete-button:hover {
+    background: #b02a37;
+}
+
+/* ===========================
+   Empty Messages
+=========================== */
+
+.empty-message {
+    width: 100%;
+
+    text-align: center;
+
+    padding: 30px;
+
+    color: #777;
+
+    background: #fafafa;
+
+    border: 1px dashed #ccc;
+
+    border-radius: 10px;
+}
+
+.empty-message h3 {
+    color: #6A0DAD;
+    margin-bottom: 8px;
+}
+
+/* ===========================
+   Basket Table
+=========================== */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 15px;
+
+    min-width: 600px;
+}
+
+table th {
+    background: #6A0DAD;
+    color: white;
+
+    padding: 15px;
+
+    text-align: center;
+}
+
+table td {
+    padding: 14px;
+
+    border-bottom:
+        1px solid #ececec;
+
+    text-align: center;
+}
+
+table tr:hover {
+    background: #fafafa;
+}
+
+table button {
+    padding: 9px 16px;
+}
+
+/* ===========================
+   Quantity Controls
+=========================== */
+
+.quantity-controls {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.quantity-controls button {
+    padding: 8px 14px;
+}
+
+.quantity-controls span {
+    min-width: 25px;
+
+    text-align: center;
+}
+
+/* ===========================
+   Grand Total
+=========================== */
+
+#grandTotal {
+    margin: 20px 0;
+
+    color: #A100FF;
+
+    font-size: 22px;
+}
+
+/* ===========================
+   Checkout
+=========================== */
+
+.checkout-box {
+    display: flex;
+
+    gap: 12px;
+
+    align-items: center;
+
+    margin-top: 15px;
+}
+
+.checkout-box input {
+    max-width: 350px;
+}
+
+/* ===========================
+   Rating
+=========================== */
+
+.rating-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.rating-form input {
+    width: 100%;
+}
+
+.rating-buttons {
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+#averageRating {
+    color: #6A0DAD;
+
+    margin-top: 22px;
+
+    padding: 12px;
+
+    background: #f7f0ff;
+
+    border-radius: 8px;
+}
+
+/* ===========================
+   Customer Reviews
+=========================== */
+
+.reviews-section {
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #eeeeee;
+}
+
+.reviews-section h3 {
+    color: #6A0DAD;
+
+    margin-bottom: 15px;
+}
+
+.rating-card {
+    background: #f7f0ff;
+
+    border-left: 5px solid #A100FF;
+
+    padding: 16px;
+
+    margin-top: 12px;
+
+    border-radius: 8px;
+}
+
+.rating-card h4 {
+    color: #333;
+
+    margin-bottom: 5px;
+
+    font-size: 17px;
+}
+
+.rating-card p {
+    margin-bottom: 5px;
+}
+
+/* ===========================
+   Notifications
+=========================== */
+
+#notificationContainer {
+    margin-top: 15px;
+}
+
+.notification-card {
+    background: #f7f0ff;
+
+    border-left: 5px solid #A100FF;
+
+    padding: 16px;
+
+    margin-top: 15px;
+
+    border-radius: 8px;
+}
+
+.notification-card h4 {
+    margin-bottom: 3px;
+
+    color: #333;
+}
+
+.notification-card p {
+    margin: 0;
+}
+
+/* ===========================
+   Loading State
+=========================== */
+
+.loading-message {
+    text-align: center;
+
+    padding: 25px;
+
+    color: #6A0DAD;
+
+    font-size: 16px;
+}
+
+/* ===========================
+   Error State
+=========================== */
+
+.error-message {
+    text-align: center;
+
+    padding: 25px;
+
+    color: #b02a37;
+
+    background: #fff5f5;
+
+    border: 1px solid #f1c0c0;
+
+    border-radius: 8px;
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+footer {
+    text-align: center;
+
+    padding: 25px;
+
+    color: #666;
+
+    margin-top: 40px;
+}
+
+footer p {
+    margin-bottom: 5px;
+}
+
+/* ===========================
+   Empty States
+=========================== */
+
+#cakeContainer h3 {
+    color: #666;
+}
+
+#basketBody td[colspan] {
+    color: #777;
+
+    padding: 25px;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 900px) {
+
+    .section {
+        width: 96%;
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 32px;
+    }
+
+    .form-row,
+    .search-row {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    input,
+    select {
+        width: 100%;
+
+        min-width: 100%;
+    }
+
+    .form-row button,
+    .search-row button {
+        width: 100%;
+    }
+
+    .checkout-box {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .checkout-box input {
+        max-width: none;
+
+        width: 100%;
+    }
+
+    .rating-buttons {
+        flex-direction: column;
+    }
+
+    .rating-buttons button {
+        width: 100%;
+    }
+
+    .cake-actions {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .cake-actions button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .section {
+        margin: 15px auto;
+
+        padding: 16px;
+    }
+
+    .section h2 {
+        font-size: 23px;
+    }
+
+    header {
+        padding: 22px 15px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    header p {
+        font-size: 15px;
+    }
+
+    .cake-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =====================================================
+   SHOPPING BASKET
+===================================================== */
+
+.basket-section {
+    margin: 30px auto;
+    padding: 34px;
+    background: #ffffff;
+    border-radius: 22px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =====================================================
+   Basket Header
+===================================================== */
+
+.basket-header {
+    margin-bottom: 25px;
+}
+
+.basket-header h2 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: #6a0dad;
+}
+
+.basket-header p {
+    margin: 8px 0 0;
+    color: #777;
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   Basket Table
+===================================================== */
+
+.basket-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 15px;
+    border: 1px solid #eeeeee;
+}
+
+.basket-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+}
+
+.basket-table thead {
+    background: linear-gradient(
+        135deg,
+        #6a0dad,
+        #9b00ff
+    );
+}
+
+.basket-table th {
+    padding: 17px 15px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.basket-table td {
+    padding: 18px 15px;
+    text-align: center;
+    border-bottom: 1px solid #eeeeee;
+    color: #333;
+    font-size: 15px;
+}
+
+.basket-table tbody tr {
+    transition: all 0.2s ease;
+}
+
+.basket-table tbody tr:hover {
+    background: #faf7ff;
+}
+
+.basket-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =====================================================
+   Quantity Controls
+===================================================== */
+
+.quantity-controls {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.quantity-controls button {
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 10px;
+    background: #9b00ff;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.quantity-controls button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(155, 0, 255, 0.25);
+}
+
+.quantity-controls button:disabled {
+    background: #bdbdbd;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.quantity-controls span {
+    min-width: 30px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   Remove Button
+===================================================== */
+
+.basket-table td button[onclick*="deleteBasket"] {
+    border: none;
+    padding: 9px 18px;
+    border-radius: 9px;
+    background: #e53935;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.basket-table td button[onclick*="deleteBasket"]:hover {
+    background: #c62828;
+    transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   Order Summary
+===================================================== */
+
+.order-summary {
+    max-width: 430px;
+    margin: 25px 0 25px auto;
+    padding: 22px 25px;
+    background: #faf7ff;
+    border: 1px solid #eadcff;
+    border-radius: 16px;
+}
+
+.summary-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #6a0dad;
+    margin-bottom: 15px;
+}
+
+.summary-row,
+.summary-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.summary-row {
+    color: #666;
+    font-size: 15px;
+}
+
+.summary-divider {
+    height: 1px;
+    margin: 15px 0;
+    background: #e6d8f5;
+}
+
+.summary-total {
+    font-size: 18px;
+    color: #333;
+}
+
+.summary-total strong {
+    font-size: 25px;
+    color: #8b00e6;
+}
+
+
+/* =====================================================
+   Checkout Card
+===================================================== */
+
+.checkout-card {
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 18px;
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #faf7ff
+    );
+    border: 1px solid #eadcff;
+}
+
+.checkout-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.checkout-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: linear-gradient(
+        135deg,
+        #6a0dad,
+        #a000ff
+    );
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.checkout-heading h3 {
+    margin: 0;
+    font-size: 22px;
+    color: #333;
+}
+
+.checkout-heading p {
+    margin: 5px 0 0;
+    color: #777;
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   Checkout Form
+===================================================== */
+
+.checkout-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 15px;
+    border: 1px solid #d7d7d7;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #333;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #9b00ff;
+    box-shadow: 0 0 0 3px rgba(155, 0, 255, 0.10);
+}
+
+
+/* =====================================================
+   Checkout Button
+===================================================== */
+
+.checkout-action {
+    margin-top: 28px;
+    text-align: center;
+}
+
+.checkout-button {
+    width: min(100%, 420px);
+    padding: 16px 28px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(
+        135deg,
+        #7b00d4,
+        #a000ff
+    );
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(123, 0, 212, 0.25);
+    transition: all 0.25s ease;
+}
+
+.checkout-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(123, 0, 212, 0.32);
+}
+
+.checkout-button:active {
+    transform: translateY(0);
+}
+
+.checkout-note {
+    margin: 10px 0 0;
+    color: #888;
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   Empty Basket
+===================================================== */
+
+.basket-table td[colspan="5"] {
+    padding: 45px 20px;
+    color: #777;
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   Responsive Design
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .basket-section {
+        padding: 20px;
+    }
+
+    .basket-header h2 {
+        font-size: 27px;
+    }
+
+    .checkout-form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width {
+        grid-column: auto;
+    }
+
+    .order-summary {
+        max-width: none;
+    }
+
+    .checkout-card {
+        padding: 22px;
+    }
+
+    .basket-table th,
+    .basket-table td {
+        padding: 13px 10px;
+        font-size: 13px;
+    }
+}
+
+
+@media (max-width: 520px) {
+
+    .basket-section {
+        padding: 15px;
+    }
+
+    .basket-header h2 {
+        font-size: 24px;
+    }
+
+    .checkout-heading {
+        align-items: flex-start;
+    }
+
+    .checkout-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+        flex-shrink: 0;
+    }
+
+    .checkout-heading h3 {
+        font-size: 19px;
+    }
+
+    .checkout-button {
+        width: 100%;
+    }
+}
+
+/* =====================================================
+   AVAILABLE CAKES - PREMIUM UI
+   ===================================================== */
+
+#cakeContainer {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 25px;
+  align-items: stretch;
+}
+
+/* =====================================================
+   Cake Card
+   ===================================================== */
+
+.cake-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: 455px;
+
+  padding: 24px;
+
+  background: #ffffff;
+
+  border: 1px solid #eeeeee;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 6px 20px rgba(91, 33, 182, 0.08);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+
+  overflow: hidden;
+}
+
+.cake-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 5px;
+
+  background: linear-gradient(
+    90deg,
+    #7e22ce,
+    #a855f7
+  );
+}
+
+.cake-card:hover {
+  transform: translateY(-7px);
+
+  border-color: #d8b4fe;
+
+  box-shadow:
+    0 15px 35px rgba(91, 33, 182, 0.16);
+}
+
+/* =====================================================
+   Cake Header
+   ===================================================== */
+
+.cake-card-top {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 18px;
+}
+
+.cake-icon {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  font-size: 30px;
+
+  background: linear-gradient(
+    135deg,
+    #faf5ff,
+    #f3e8ff
+  );
+
+  border: 1px solid #e9d5ff;
+
+  transition: transform 0.25s ease;
+}
+
+.cake-card:hover .cake-icon {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+/* =====================================================
+   Category Badge
+   ===================================================== */
+
+.cake-category {
+  padding: 7px 12px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  color: #6b21a8;
+
+  background: #faf5ff;
+
+  border: 1px solid #e9d5ff;
+
+  white-space: nowrap;
+}
+
+/* =====================================================
+   Cake Content
+   ===================================================== */
+
+.cake-content {
+  flex: 1;
+}
+
+.cake-card h3 {
+  margin: 0 0 15px 0;
+
+  color: #3f3f46;
+
+  font-size: 22px;
+
+  line-height: 1.3;
+
+  font-weight: 750;
+}
+
+.cake-description {
+  min-height: 62px;
+
+  margin: 0 0 20px 0;
+
+  color: #666666;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+/* =====================================================
+   Price
+   ===================================================== */
+
+.cake-price {
+  margin: 12px 0 18px 0;
+
+  color: #7e22ce;
+
+  font-size: 26px;
+
+  font-weight: 800;
+}
+
+/* =====================================================
+   Availability
+   ===================================================== */
+
+.cake-availability {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 7px 12px;
+
+  width: fit-content;
+
+  border-radius: 20px;
+
+  background: #f0fdf4;
+
+  color: #15803d;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+
+  box-shadow:
+    0 0 0 4px rgba(34, 197, 94, 0.12);
+}
+
+.status-dot.unavailable {
+  background: #ef4444;
+
+  box-shadow:
+    0 0 0 4px rgba(239, 68, 68, 0.12);
+}
+
+/* =====================================================
+   Cake Actions
+   ===================================================== */
+
+.cake-actions {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+  margin-top: 22px;
+
+  padding-top: 18px;
+
+  border-top: 1px solid #f0f0f0;
+}
+
+/* =====================================================
+   Add To Basket
+   ===================================================== */
+
+.add-basket-button {
+  width: 100%;
+
+  min-height: 48px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: linear-gradient(
+    135deg,
+    #8b5cf6,
+    #a855f7
+  );
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 6px 15px rgba(139, 92, 246, 0.25);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.add-basket-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 22px rgba(139, 92, 246, 0.35);
+}
+
+.add-basket-button:active {
+  transform: scale(0.98);
+}
+
+.add-basket-button span {
+  margin-right: 7px;
+}
+
+/* =====================================================
+   Delete Button
+   ===================================================== */
+
+.delete-button {
+  width: 100%;
+
+  min-height: 42px;
+
+  border: 1px solid #fecaca;
+
+  border-radius: 12px;
+
+  background: #fff5f5;
+
+  color: #dc2626;
+
+  font-size: 14px;
+
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.delete-button:hover {
+  background: #dc2626;
+
+  color: white;
+
+  border-color: #dc2626;
+
+  transform: translateY(-1px);
+}
+
+.delete-button span {
+  margin-right: 6px;
+}
+
+/* =====================================================
+   Unavailable Button
+   ===================================================== */
+
+.unavailable-button {
+  background: #e5e7eb;
+
+  color: #6b7280;
+
+  cursor: not-allowed;
+
+  box-shadow: none;
+}
+
+/* =====================================================
+   Empty Result
+   ===================================================== */
+
+.empty-message {
+  grid-column: 1 / -1;
+
+  padding: 60px 20px;
+
+  text-align: center;
+
+  border: 1px dashed #d8b4fe;
+
+  border-radius: 18px;
+
+  background: #faf5ff;
+}
+
+.empty-icon {
+  font-size: 50px;
+
+  margin-bottom: 12px;
+}
+
+.empty-message h3 {
+  margin-bottom: 8px;
+
+  color: #6b21a8;
+
+  font-size: 22px;
+}
+
+.empty-message p {
+  color: #777777;
+
+  margin: 0;
+}
+
+/* =====================================================
+   Responsive Design
+   ===================================================== */
+
+@media (max-width: 1200px) {
+  #cakeContainer {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  #cakeContainer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  #cakeContainer {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .cake-card {
+    min-height: auto;
+  }
+}
+
+/* =========================================================
+   ADD NEW CAKE + SEARCH CAKES
+   PREMIUM CAPSTONE UI
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   Common Section Styling
+   --------------------------------------------------------- */
+
+section {
+  position: relative;
+}
+
+section h2 {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+section h2::after {
+  content: "";
+
+  display: block;
+
+  width: 55px;
+  height: 4px;
+
+  margin-top: 10px;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    90deg,
+    #7e22ce,
+    #a855f7
+  );
+}
+
+
+/* =========================================================
+   ADD NEW CAKE
+   ========================================================= */
+
+/*
+   This works with the existing inputs:
+   #newCakeName
+   #newCakeDescription
+   #newCakeCategory
+   #newCakePrice
+   #newCakeAvailability
+*/
+
+#newCakeName,
+#newCakeDescription,
+#newCakeCategory,
+#newCakePrice,
+#newCakeAvailability {
+  box-sizing: border-box;
+
+  height: 58px;
+
+  padding: 0 17px;
+
+  border: 1px solid #dedede;
+
+  border-radius: 13px;
+
+  background: #ffffff;
+
+  color: #333333;
+
+  font-size: 15px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+
+/* Placeholder */
+
+#newCakeName::placeholder,
+#newCakeDescription::placeholder,
+#newCakeCategory::placeholder,
+#newCakePrice::placeholder {
+  color: #999999;
+}
+
+
+/* Hover */
+
+#newCakeName:hover,
+#newCakeDescription:hover,
+#newCakeCategory:hover,
+#newCakePrice:hover,
+#newCakeAvailability:hover {
+  border-color: #c084fc;
+}
+
+
+/* Focus */
+
+#newCakeName:focus,
+#newCakeDescription:focus,
+#newCakeCategory:focus,
+#newCakePrice:focus,
+#newCakeAvailability:focus {
+  border-color: #9333ea;
+
+  box-shadow:
+    0 0 0 4px rgba(147, 51, 234, 0.10);
+
+  background: #fdfaff;
+}
+
+
+/* Add Cake button */
+
+button[onclick="addCake()"] {
+  position: relative;
+
+  height: 58px;
+
+  min-width: 145px;
+
+  padding: 0 24px;
+
+  border: none;
+
+  border-radius: 13px;
+
+  background: linear-gradient(
+    135deg,
+    #8b5cf6,
+    #a855f7
+  );
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 7px 18px rgba(139, 92, 246, 0.25);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+button[onclick="addCake()"]:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 11px 25px rgba(139, 92, 246, 0.35);
+}
+
+button[onclick="addCake()"]:active {
+  transform: scale(0.97);
+}
+
+
+/* =========================================================
+   SEARCH CAKES
+   ========================================================= */
+
+#cakeName,
+#cakeCategory,
+#minPrice,
+#maxPrice {
+  box-sizing: border-box;
+
+  height: 58px;
+
+  padding: 0 18px;
+
+  border: 1px solid #dedede;
+
+  border-radius: 13px;
+
+  background: #ffffff;
+
+  color: #333333;
+
+  font-size: 15px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+
+/* Search placeholders */
+
+#cakeName::placeholder,
+#cakeCategory::placeholder,
+#minPrice::placeholder,
+#maxPrice::placeholder {
+  color: #999999;
+}
+
+
+/* Hover */
+
+#cakeName:hover,
+#cakeCategory:hover,
+#minPrice:hover,
+#maxPrice:hover {
+  border-color: #c084fc;
+}
+
+
+/* Focus */
+
+#cakeName:focus,
+#cakeCategory:focus,
+#minPrice:focus,
+#maxPrice:focus {
+  border-color: #9333ea;
+
+  box-shadow:
+    0 0 0 4px rgba(147, 51, 234, 0.10);
+
+  background: #fdfaff;
+}
+
+
+/* =========================================================
+   SEARCH BUTTON
+   ========================================================= */
+
+button[onclick="filterCakes()"] {
+  height: 58px;
+
+  min-width: 120px;
+
+  padding: 0 23px;
+
+  border: none;
+
+  border-radius: 13px;
+
+  background: linear-gradient(
+    135deg,
+    #8b5cf6,
+    #a855f7
+  );
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 7px 18px rgba(139, 92, 246, 0.23);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+button[onclick="filterCakes()"]:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 11px 25px rgba(139, 92, 246, 0.34);
+}
+
+button[onclick="filterCakes()"]:active {
+  transform: scale(0.97);
+}
+
+
+/* =========================================================
+   CLEAR BUTTON
+   ========================================================= */
+
+button[onclick="clearSearch()"] {
+  height: 58px;
+
+  min-width: 110px;
+
+  padding: 0 22px;
+
+  border: 1px solid #ddd6fe;
+
+  border-radius: 13px;
+
+  background: #faf5ff;
+
+  color: #7e22ce;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+button[onclick="clearSearch()"]:hover {
+  background: #f3e8ff;
+
+  border-color: #c084fc;
+
+  transform: translateY(-2px);
+}
+
+button[onclick="clearSearch()"]:active {
+  transform: scale(0.97);
+}
+
+
+/* =========================================================
+   SECTION CARDS
+   ========================================================= */
+
+.add-cake-section,
+.search-cake-section {
+  border: 1px solid #eeeeee;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.055);
+
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.add-cake-section:hover,
+.search-cake-section:hover {
+  box-shadow:
+    0 12px 32px rgba(91, 33, 182, 0.08);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  #newCakeName,
+  #newCakeDescription,
+  #newCakeCategory,
+  #newCakePrice,
+  #newCakeAvailability,
+  #cakeName,
+  #cakeCategory,
+  #minPrice,
+  #maxPrice {
+    width: 100%;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  button[onclick="addCake()"],
+  button[onclick="filterCakes()"],
+  button[onclick="clearSearch()"] {
+    width: 100%;
+
+    margin-top: 8px;
+  }
+
+}
+/* =========================================================
+   CUSTOMER RATINGS
+   PREMIUM CAPSTONE UI
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   Main Rating Section
+   --------------------------------------------------------- */
+
+.ratings-section {
+
+    position: relative;
+
+    padding: 38px;
+
+    margin-top: 28px;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 22px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.06);
+
+}
+
+
+/* ---------------------------------------------------------
+   Section Heading
+   --------------------------------------------------------- */
+
+.ratings-section .section-heading {
+
+    margin-bottom: 30px;
+
+}
+
+
+.ratings-section .section-heading h2 {
+
+    margin: 0;
+
+    color: #6d12b5;
+
+    font-size: 30px;
+
+    font-weight: 800;
+
+}
+
+
+.ratings-section .section-heading h2::after {
+
+    content: "";
+
+    display: block;
+
+    width: 55px;
+
+    height: 4px;
+
+    margin-top: 10px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7e22ce,
+            #a855f7
+        );
+
+}
+
+
+.ratings-section .section-heading p {
+
+    margin-top: 13px;
+
+    color: #777;
+
+    font-size: 15px;
+
+}
+
+
+/* ---------------------------------------------------------
+   Two Column Layout
+   --------------------------------------------------------- */
+
+.rating-layout {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.4fr)
+        minmax(320px, 0.8fr);
+
+    gap: 26px;
+
+    align-items: stretch;
+
+}
+
+
+/* ---------------------------------------------------------
+   Form Card
+   --------------------------------------------------------- */
+
+.rating-form-card,
+.rating-summary-card {
+
+    padding: 28px;
+
+    border: 1px solid #eadcff;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #fcf8ff
+        );
+
+    box-shadow:
+        0 7px 22px rgba(126, 34, 206, 0.06);
+
+}
+
+
+/* ---------------------------------------------------------
+   Card Heading
+   --------------------------------------------------------- */
+
+.rating-card-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.rating-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 52px;
+
+    height: 52px;
+
+    flex-shrink: 0;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7e22ce,
+            #a855f7
+        );
+
+    color: white;
+
+    font-size: 23px;
+
+    box-shadow:
+        0 7px 18px rgba(126, 34, 206, 0.20);
+
+}
+
+
+.rating-card-heading h3 {
+
+    margin: 0 0 4px;
+
+    color: #3b1765;
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+}
+
+
+.rating-card-heading p {
+
+    margin: 0;
+
+    color: #777;
+
+    font-size: 13px;
+
+}
+
+
+/* ---------------------------------------------------------
+   Rating Fields
+   --------------------------------------------------------- */
+
+.rating-field {
+
+    margin-bottom: 18px;
+
+}
+
+
+.rating-field label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #3d2456;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+}
+
+
+.rating-field small {
+
+    display: block;
+
+    margin-top: 6px;
+
+    color: #999;
+
+    font-size: 12px;
+
+}
+
+
+.rating-field input,
+.rating-field select,
+.rating-field textarea {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border: 1px solid #ddd6e8;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    color: #333;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.rating-field input,
+.rating-field select {
+
+    height: 52px;
+
+    padding: 0 15px;
+
+}
+
+
+.rating-field textarea {
+
+    min-height: 125px;
+
+    padding: 15px;
+
+    resize: vertical;
+
+}
+
+
+.rating-field input:hover,
+.rating-field select:hover,
+.rating-field textarea:hover {
+
+    border-color: #c084fc;
+
+}
+
+
+.rating-field input:focus,
+.rating-field select:focus,
+.rating-field textarea:focus {
+
+    border-color: #9333ea;
+
+    box-shadow:
+        0 0 0 4px rgba(147, 51, 234, 0.10);
+
+}
+
+
+/* ---------------------------------------------------------
+   Submit Rating Button
+   --------------------------------------------------------- */
+
+.submit-rating-btn {
+
+    width: 100%;
+
+    height: 54px;
+
+    margin-top: 5px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7e22ce,
+            #a855f7
+        );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(126, 34, 206, 0.22);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.submit-rating-btn:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 27px rgba(126, 34, 206, 0.32);
+
+}
+
+
+.submit-rating-btn:active {
+
+    transform: scale(0.98);
+
+}
+
+
+/* ---------------------------------------------------------
+   Rating Summary
+   --------------------------------------------------------- */
+
+.rating-summary-card {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.rating-score {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 25px;
+
+    margin: 8px 0 20px;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f5eaff,
+            #faf5ff
+        );
+
+    border: 1px solid #ead8ff;
+
+}
+
+
+.big-rating {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 62px;
+
+    height: 62px;
+
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    font-size: 29px;
+
+    box-shadow:
+        0 5px 15px rgba(126, 34, 206, 0.10);
+
+}
+
+
+.average-rating-value {
+
+    color: #7415b7;
+
+    font-size: 21px;
+
+    font-weight: 800;
+
+}
+
+
+.rating-caption {
+
+    margin-top: 5px;
+
+    color: #888;
+
+    font-size: 12px;
+
+}
+
+
+/* ---------------------------------------------------------
+   Average Rating Button
+   --------------------------------------------------------- */
+
+.average-rating-btn {
+
+    width: 100%;
+
+    height: 50px;
+
+    border: 1px solid #d8b4fe;
+
+    border-radius: 12px;
+
+    background: #faf5ff;
+
+    color: #7e22ce;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.average-rating-btn:hover {
+
+    background: #f3e8ff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 18px rgba(126, 34, 206, 0.12);
+
+}
+
+
+/* ---------------------------------------------------------
+   Information Items
+   --------------------------------------------------------- */
+
+.rating-info {
+
+    margin-top: 24px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #eadff4;
+
+}
+
+
+.info-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 11px 0;
+
+}
+
+
+.info-item > span {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 35px;
+
+    height: 35px;
+
+    border-radius: 10px;
+
+    background: #f5eaff;
+
+    font-size: 16px;
+
+}
+
+
+.info-item strong {
+
+    display: block;
+
+    color: #4a2468;
+
+    font-size: 13px;
+
+}
+
+
+.info-item small {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: #999;
+
+    font-size: 11px;
+
+}
+
+
+/* ---------------------------------------------------------
+   Customer Reviews
+   --------------------------------------------------------- */
+
+.customer-reviews-section {
+
+    margin-top: 30px;
+
+    padding-top: 28px;
+
+    border-top: 1px solid #eeeeee;
+
+}
+
+
+.reviews-heading {
+
+    margin-bottom: 18px;
+
+}
+
+
+.reviews-heading h3 {
+
+    margin: 0;
+
+    color: #541080;
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+}
+
+
+.reviews-heading p {
+
+    margin: 6px 0 0;
+
+    color: #888;
+
+    font-size: 13px;
+
+}
+
+
+/* ---------------------------------------------------------
+   Rating List
+   --------------------------------------------------------- */
+
+.rating-list {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(280px, 1fr)
+        );
+
+    gap: 15px;
+
+}
+
+
+/* ---------------------------------------------------------
+   Individual Review Card
+   --------------------------------------------------------- */
+
+.rating-card {
+
+    position: relative;
+
+    padding: 20px;
+
+    border: 1px solid #eadcff;
+
+    border-left: 4px solid #9333ea;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #faf5ff
+        );
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.rating-card:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 24px rgba(126, 34, 206, 0.10);
+
+}
+
+
+.rating-card h4 {
+
+    margin: 0 0 8px;
+
+    color: #35134e;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+}
+
+
+.rating-card p {
+
+    margin: 6px 0;
+
+    color: #666;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+}
+
+
+.rating-card p:first-of-type {
+
+    color: #e6a900;
+
+    font-weight: 700;
+
+}
+
+
+/* ---------------------------------------------------------
+   Empty Reviews
+   --------------------------------------------------------- */
+
+.reviews-empty {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 150px;
+
+    padding: 25px;
+
+    border: 1px dashed #d8b4fe;
+
+    border-radius: 15px;
+
+    background: #fcf8ff;
+
+    text-align: center;
+
+}
+
+
+.reviews-empty span {
+
+    margin-bottom: 10px;
+
+    font-size: 30px;
+
+}
+
+
+.reviews-empty strong {
+
+    color: #6d12b5;
+
+    font-size: 15px;
+
+}
+
+
+.reviews-empty small {
+
+    margin-top: 5px;
+
+    color: #999;
+
+}
+
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    .rating-layout {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .ratings-section {
+
+        padding: 22px;
+
+    }
+
+    .rating-form-card,
+    .rating-summary-card {
+
+        padding: 20px;
+
+    }
+
+    .rating-list {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+/* =====================================================
+   Notification Section
+   ===================================================== */
+
+.notification-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.notification-heading h2 {
+    margin: 0 0 6px;
+}
+
+.notification-heading p {
+    margin: 0;
+    color: #777;
+}
+
+.notification-count {
+    padding: 8px 14px;
+    border-radius: 20px;
+
+    background: #f0e4ff;
+    color: #6d20b5;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* Notification List */
+
+#notificationContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    max-height: 520px;
+    overflow-y: auto;
+
+    padding: 4px 8px 4px 2px;
+}
+
+
+/* Notification Card */
+
+.notification-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+
+    padding: 18px;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #faf5ff
+    );
+
+    border: 1px solid #eadcff;
+    border-left: 5px solid #8b2be2;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 4px 14px rgba(100, 40, 160, 0.08);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.notification-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 22px rgba(100, 40, 160, 0.14);
+}
+
+
+/* Notification Icon */
+
+.notification-icon {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background: #f0e4ff;
+
+    font-size: 21px;
+}
+
+
+/* Notification Content */
+
+.notification-content {
+    flex: 1;
+    min-width: 0;
+}
+
+
+/* Notification Header */
+
+.notification-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+/* Notification Title */
+
+.notification-title {
+    display: inline-block;
+
+    margin-bottom: 5px;
+
+    padding: 4px 9px;
+
+    border-radius: 20px;
+
+    background: #efe2ff;
+    color: #6d20b5;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+
+/* Customer Name */
+
+.notification-content h4 {
+    margin: 3px 0 7px;
+
+    color: #26133c;
+
+    font-size: 17px;
+}
+
+
+/* Message */
+
+.notification-message {
+    margin: 0 0 10px;
+
+    color: #666;
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* Status */
+
+.notification-status {
+    font-size: 12px;
+    font-weight: 600;
+
+    color: #159447;
+}
+
+
+/* Delete Button */
+
+.notification-delete {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border: 1px solid #ffd0d0;
+    border-radius: 10px;
+
+    background: #fff5f5;
+
+    color: #dc2626;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.notification-delete:hover {
+    background: #fee2e2;
+
+    transform: scale(1.05);
+
+    box-shadow:
+        0 4px 10px rgba(220, 38, 38, 0.15);
+}
+
+
+/* Empty State */
+
+.notification-empty {
+    text-align: center;
+
+    padding: 55px 20px;
+
+    border: 1px dashed #dcbcff;
+
+    border-radius: 16px;
+
+    background: #fbf8ff;
+}
+
+.notification-empty .empty-icon {
+    font-size: 42px;
+
+    margin-bottom: 12px;
+}
+
+.notification-empty h3 {
+    margin: 0 0 8px;
+
+    color: #6818b5;
+}
+
+.notification-empty p {
+    margin: 0;
+
+    color: #777;
+}
+
+
+/* Notification Scrollbar */
+
+#notificationContainer::-webkit-scrollbar {
+    width: 7px;
+}
+
+#notificationContainer::-webkit-scrollbar-thumb {
+    background: #c9a4e8;
+    border-radius: 10px;
+}
+
+#notificationContainer::-webkit-scrollbar-track {
+    background: #f7f2fb;
+    border-radius: 10px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .notification-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .notification-count {
+        align-self: flex-start;
+    }
+
+    .notification-card {
+        padding: 14px;
+    }
+
+    .notification-header {
+        gap: 10px;
+    }
+
+    .notification-delete {
+        width: 36px;
+        height: 36px;
+    }
+
+}
+/* =====================================================
+   Customer Review Cards
+   ===================================================== */
+
+.rating-card {
+    position: relative;
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #faf5ff
+    );
+    border: 1px solid #ead7ff;
+    border-left: 5px solid #9b2cff;
+    border-radius: 16px;
+    padding: 24px 28px;
+    min-height: 150px;
+    box-sizing: border-box;
+    transition: all 0.25s ease;
+}
+
+.rating-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(126, 34, 206, 0.12);
+    border-color: #c084fc;
+}
+
+.rating-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.rating-card h4 {
+    margin: 0 0 12px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #35106b;
+}
+
+.rating-stars {
+    color: #35106b;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.rating-review {
+    margin: 18px 0 0;
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Delete review button */
+
+.rating-delete-button {
+    width: 42px;
+    height: 42px;
+    border: 1px solid #fecaca;
+    border-radius: 12px;
+    background: #fff5f5;
+    color: #dc2626;
+    cursor: pointer;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.rating-delete-button:hover {
+    background: #fee2e2;
+    border-color: #f87171;
+    transform: scale(1.08);
+}
+
+.rating-delete-button:active {
+    transform: scale(0.95);
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+    .rating-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .rating-card {
+        padding: 18px;
+    }
+
+    .rating-card h4 {
+        font-size: 16px;
+    }
+
+    .rating-delete-button {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+/* =========================================================
+   CAKE DELIGHT
+   CLOUD-NATIVE MICROservices CAPSTONE
+   PREMIUM HERO UI
+   ========================================================= */
+
+
+/* =========================================================
+   GLOBAL PAGE BACKGROUND
+   ========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f7f4ff 0%,
+            #f8f9fc 45%,
+            #ffffff 100%
+        );
+
+    color: #252525;
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   HERO HEADER
+   ========================================================= */
+
+.hero-header {
+    position: relative;
+
+    width: 100%;
+    min-height: 680px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    color: #ffffff;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255, 255, 255, 0.18),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(255, 255, 255, 0.14),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(255, 255, 255, 0.10),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #5b0aa8 0%,
+            #7411c7 35%,
+            #8b0ee8 65%,
+            #b000ff 100%
+        );
+
+    box-shadow:
+        0 18px 45px rgba(91, 10, 168, 0.30);
+
+    margin: 0 0 35px 0;
+}
+
+
+/* =========================================================
+   HERO DECORATIONS
+   ========================================================= */
+
+.hero-decoration {
+    position: absolute;
+
+    color: rgba(255, 255, 255, 0.28);
+
+    font-size: 28px;
+
+    pointer-events: none;
+
+    animation: heroFloat 4s ease-in-out infinite;
+}
+
+.hero-decoration-one {
+    top: 85px;
+    left: 11%;
+}
+
+.hero-decoration-two {
+    top: 150px;
+    right: 13%;
+
+    font-size: 22px;
+
+    animation-delay: 1s;
+}
+
+.hero-decoration-three {
+    bottom: 85px;
+    left: 17%;
+
+    font-size: 38px;
+
+    animation-delay: 2s;
+}
+
+
+@keyframes heroFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(1150px, 92%);
+
+    margin: 0 auto;
+
+    padding: 70px 20px 75px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   PROJECT BADGE
+   ========================================================= */
+
+.project-badge {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 12px 22px;
+
+    margin-bottom: 25px;
+
+    border: 1px solid rgba(255, 255, 255, 0.30);
+
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.2px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.10);
+}
+
+
+.badge-dot {
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #4ade80;
+
+    box-shadow:
+        0 0 12px rgba(74, 222, 128, 0.9);
+}
+
+
+/* =========================================================
+   MAIN TITLE
+   ========================================================= */
+
+.hero-title {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: clamp(52px, 7vw, 88px);
+
+    line-height: 1.05;
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+
+    text-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.20);
+}
+
+
+.cake-logo {
+    display: inline-block;
+
+    font-size: 0.75em;
+
+    filter:
+        drop-shadow(
+            0 8px 10px rgba(0, 0, 0, 0.25)
+        );
+
+    animation: cakeBounce 3s ease-in-out infinite;
+}
+
+
+@keyframes cakeBounce {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-8px) rotate(-2deg);
+    }
+}
+
+
+/* =========================================================
+   HERO TAGLINE
+   ========================================================= */
+
+.hero-tagline {
+    margin: 24px 0 10px;
+
+    color: #ffffff;
+
+    font-size: clamp(26px, 3vw, 38px);
+
+    line-height: 1.25;
+
+    font-weight: 700;
+
+    text-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+.hero-subtitle {
+    max-width: 850px;
+
+    margin: 0 auto 35px;
+
+    color: rgba(255, 255, 255, 0.88);
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   FEATURE CARDS
+   ========================================================= */
+
+.hero-features {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 16px;
+
+    max-width: 1050px;
+
+    margin: 30px auto;
+}
+
+
+.hero-feature {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    min-height: 76px;
+
+    padding: 15px 18px;
+
+    text-align: left;
+
+    border: 1px solid rgba(255, 255, 255, 0.22);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.11);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.hero-feature:hover {
+    transform: translateY(-6px);
+
+    background:
+        rgba(255, 255, 255, 0.19);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.18);
+}
+
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255, 255, 255, 0.17);
+
+    font-size: 25px;
+}
+
+
+.hero-feature strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 700;
+}
+
+
+.hero-feature small {
+    display: block;
+
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   TECHNOLOGY TAGS
+   ========================================================= */
+
+.architecture-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin: 25px auto 30px;
+}
+
+
+.architecture-tags span {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 8px 15px;
+
+    border: 1px solid rgba(255, 255, 255, 0.24);
+
+    border-radius: 30px;
+
+    background:
+        rgba(255, 255, 255, 0.10);
+
+    color: rgba(255, 255, 255, 0.90);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    backdrop-filter: blur(8px);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.architecture-tags span:hover {
+    transform: translateY(-2px);
+
+    background:
+        rgba(255, 255, 255, 0.18);
+}
+
+
+.architecture-tags b {
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   EXPLORE CAKES BUTTON
+   ========================================================= */
+
+.hero-cta {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    min-width: 185px;
+
+    padding: 16px 27px;
+
+    margin-top: 5px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background: #ffffff;
+
+    color: #6a0dad;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.20);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.hero-cta span {
+    font-size: 20px;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+.hero-cta:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 38px rgba(0, 0, 0, 0.28);
+
+    color: #5b0aa8;
+}
+
+
+.hero-cta:hover span {
+    transform: translateY(4px);
+}
+
+
+/* =========================================================
+   SECTIONS BELOW HERO
+   ========================================================= */
+
+.section,
+.basket-section,
+.customer-reviews-section {
+    position: relative;
+
+    width: min(1400px, 94%);
+
+    margin: 28px auto;
+
+    background:
+        rgba(255, 255, 255, 0.96);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 8px 30px rgba(58, 29, 96, 0.08);
+
+    border: 1px solid #eee6f8;
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
+
+.section h2,
+.basket-section h2,
+.customer-reviews-section h2 {
+    color: #6a0dad;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .hero-features {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .hero-header {
+        min-height: 650px;
+    }
+
+    .hero-content {
+        padding:
+            55px 15px 60px;
+    }
+
+    .hero-title {
+        flex-direction: column;
+
+        gap: 8px;
+
+        font-size: 52px;
+
+        letter-spacing: -1px;
+    }
+
+    .hero-tagline {
+        font-size: 25px;
+    }
+
+    .hero-subtitle {
+        font-size: 15px;
+    }
+
+    .hero-features {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .hero-feature {
+        text-align: left;
+    }
+
+    .architecture-tags {
+        gap: 7px;
+    }
+
+    .architecture-tags span {
+        font-size: 12px;
+
+        padding:
+            7px 11px;
+    }
+
+}
+
+
+@media (max-width: 400px) {
+
+    .hero-title {
+        font-size: 44px;
+    }
+
+    .hero-tagline {
+        font-size: 22px;
+    }
+
+    .project-badge {
+        font-size: 12px;
+
+        padding:
+            10px 15px;
+    }
+
+}
+/* Smooth and stable page scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* =========================================================
+   CAKE DELIGHT - FINAL FULL RESPONSIVE DESIGN
+   Paste this at the VERY END of style.css
+   No HTML / JS / folder changes required
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   GLOBAL RESPONSIVE FOUNDATION
+   --------------------------------------------------------- */
+
+html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img,
+video,
+iframe,
+svg,
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+input,
+select,
+textarea,
+button {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* ---------------------------------------------------------
+   HERO
+   --------------------------------------------------------- */
+
+.hero-header {
+    width: 100%;
+    max-width: 100%;
+    min-height: auto;
+    overflow: hidden;
+}
+
+.hero-content {
+    width: min(1150px, calc(100% - 40px));
+    max-width: 100%;
+    min-width: 0;
+    margin: 0 auto;
+}
+
+.hero-title {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.hero-tagline,
+.hero-subtitle {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.hero-features {
+    width: 100%;
+    max-width: 1050px;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(min(100%, 220px), 1fr)
+        );
+}
+
+.hero-feature {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.hero-feature strong,
+.hero-feature small {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.architecture-tags {
+    width: 100%;
+    max-width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+/* ---------------------------------------------------------
+   MAIN SECTIONS
+   --------------------------------------------------------- */
+
+.section,
+.basket-section,
+.customer-reviews-section,
+.ratings-section {
+    width: min(1400px, calc(100% - 40px));
+    max-width: 1400px;
+    min-width: 0;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    box-sizing: border-box;
+}
+
+.section-heading,
+.basket-header,
+.notification-heading,
+.reviews-heading {
+    min-width: 0;
+}
+
+.section-heading > *,
+.basket-header > *,
+.notification-heading > *,
+.reviews-heading > * {
+    min-width: 0;
+}
+
+.section h2,
+.basket-section h2,
+.customer-reviews-section h2,
+.ratings-section h2 {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+
+/* ---------------------------------------------------------
+   ADD CAKE / SEARCH FORMS
+   --------------------------------------------------------- */
+
+.form-row,
+.search-row {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(min(100%, 180px), 1fr)
+        );
+
+    gap: 12px;
+}
+
+.form-row > *,
+.search-row > * {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea,
+.search-row input,
+.search-row select,
+.search-row textarea {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.form-row button,
+.search-row button {
+    min-width: 0;
+    max-width: 100%;
+}
+
+
+/* ---------------------------------------------------------
+   CAKE GRID
+   --------------------------------------------------------- */
+
+#cakeContainer {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.cake-grid {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(min(100%, 220px), 1fr)
+        );
+
+    gap: clamp(14px, 2vw, 24px);
+}
+
+.cake-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    overflow: hidden;
+
+    padding: clamp(16px, 2vw, 24px);
+}
+
+.cake-card h3,
+.cake-card p,
+.cake-card strong {
+    max-width: 100%;
+
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.cake-actions {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cake-actions button {
+    min-width: 0;
+    max-width: 100%;
+}
+
+
+/* ---------------------------------------------------------
+   BASKET
+   --------------------------------------------------------- */
+
+.basket-section {
+    padding: clamp(16px, 3vw, 34px);
+}
+
+.basket-header {
+    width: 100%;
+    max-width: 100%;
+}
+
+.basket-header h2,
+.basket-header p {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+
+/* ---------------------------------------------------------
+   BASKET TABLE
+   --------------------------------------------------------- */
+
+.basket-table-wrapper,
+.table-container {
+    width: 100%;
+    max-width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+.basket-table,
+table {
+    width: 100%;
+}
+
+/*
+   On very small screens the table is allowed
+   to scroll horizontally instead of breaking
+   the complete page layout.
+*/
+
+.basket-table-wrapper table,
+.table-container table {
+    min-width: 600px;
+}
+
+
+/* ---------------------------------------------------------
+   QUANTITY CONTROLS
+   --------------------------------------------------------- */
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+
+/* ---------------------------------------------------------
+   ORDER SUMMARY
+   --------------------------------------------------------- */
+
+.order-summary {
+    width: min(430px, 100%);
+    max-width: 100%;
+    min-width: 0;
+}
+
+#grandTotal {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+
+/* ---------------------------------------------------------
+   CHECKOUT
+   --------------------------------------------------------- */
+
+.checkout-box {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkout-box input {
+    width: 100%;
+    max-width: 350px;
+    min-width: 0;
+}
+
+.checkout-form {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.checkout-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    padding: clamp(18px, 3vw, 30px);
+}
+
+.form-group {
+    min-width: 0;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.checkout-button {
+    width: min(100%, 420px);
+    max-width: 100%;
+}
+
+
+/* ---------------------------------------------------------
+   RATINGS
+   --------------------------------------------------------- */
+
+.ratings-section {
+    padding: clamp(18px, 3vw, 38px);
+}
+
+.rating-layout {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.4fr)
+        minmax(0, 0.8fr);
+
+    gap: clamp(16px, 2vw, 26px);
+}
+
+.rating-form-card,
+.rating-summary-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    padding: clamp(18px, 2.5vw, 28px);
+}
+
+.rating-card-heading {
+    min-width: 0;
+}
+
+.rating-card-heading > * {
+    min-width: 0;
+}
+
+.rating-field {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.rating-field input,
+.rating-field select,
+.rating-field textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.rating-list {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(min(100%, 280px), 1fr)
+        );
+
+    gap: 15px;
+}
+
+.rating-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+
+/* ---------------------------------------------------------
+   NOTIFICATIONS
+   --------------------------------------------------------- */
+
+.notification-heading {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.notification-heading > * {
+    min-width: 0;
+}
+
+.notification-heading h2,
+.notification-heading p {
+    max-width: 100%;
+
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.notification-count {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+#notificationContainer {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.notification-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    overflow: hidden;
+}
+
+.notification-content {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.notification-header {
+    min-width: 0;
+    max-width: 100%;
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER
+   --------------------------------------------------------- */
+
+footer {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+   1400px+
+   ========================================================= */
+
+@media (min-width: 1400px) {
+
+    .section,
+    .basket-section,
+    .customer-reviews-section,
+    .ratings-section {
+        width: min(1400px, calc(100% - 60px));
+    }
+
+    .hero-content {
+        width: min(1200px, calc(100% - 60px));
+    }
+
+}
+
+
+/* =========================================================
+   LAPTOP
+   1200px - 1399px
+   ========================================================= */
+
+@media (max-width: 1399px) {
+
+    .section,
+    .basket-section,
+    .customer-reviews-section,
+    .ratings-section {
+        width: calc(100% - 40px);
+    }
+
+    .hero-content {
+        width: calc(100% - 40px);
+    }
+
+}
+
+
+/* =========================================================
+   SMALL LAPTOP / TABLET
+   901px - 1100px
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .hero-features {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .rating-layout {
+        grid-template-columns:
+            minmax(0, 1fr);
+    }
+
+    .form-row,
+    .search-row {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+   601px - 900px
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .hero-content {
+        width: calc(100% - 30px);
+    }
+
+    .hero-title {
+        font-size: clamp(44px, 8vw, 70px);
+    }
+
+    .hero-tagline {
+        font-size: clamp(24px, 4vw, 34px);
+    }
+
+    .hero-features {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+    }
+
+    .section,
+    .basket-section,
+    .customer-reviews-section,
+    .ratings-section {
+        width: calc(100% - 30px);
+    }
+
+    .form-row,
+    .search-row {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .rating-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .checkout-form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width {
+        grid-column: auto;
+    }
+
+    .order-summary {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .notification-heading {
+        align-items: flex-start;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   <= 600px
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .hero-header {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .hero-content {
+        width: calc(100% - 24px);
+        padding:
+            40px 0
+            50px;
+    }
+
+    .hero-title {
+        flex-direction: column;
+
+        gap: 6px;
+
+        font-size:
+            clamp(
+                36px,
+                13vw,
+                52px
+            );
+
+        line-height: 1.05;
+        letter-spacing: -1px;
+    }
+
+    .hero-tagline {
+        font-size:
+            clamp(
+                21px,
+                7vw,
+                28px
+            );
+
+        line-height: 1.25;
+    }
+
+    .hero-subtitle {
+        font-size: 14px;
+        line-height: 1.55;
+    }
+
+    .hero-features {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .hero-feature {
+        width: 100%;
+        min-height: 64px;
+
+        padding: 12px 14px;
+    }
+
+    .architecture-tags {
+        gap: 7px;
+    }
+
+    .architecture-tags span {
+        max-width: 100%;
+
+        padding:
+            7px 10px;
+
+        font-size: 11px;
+    }
+
+
+    /* Sections */
+
+    .section,
+    .basket-section,
+    .customer-reviews-section,
+    .ratings-section {
+        width: calc(100% - 20px);
+
+        margin-top: 15px;
+        margin-bottom: 15px;
+
+        border-radius: 16px;
+    }
+
+    .section {
+        padding: 16px;
+    }
+
+    .basket-section,
+    .ratings-section {
+        padding: 16px;
+    }
+
+
+    /* Headings */
+
+    .section h2,
+    .basket-section h2,
+    .ratings-section .section-heading h2 {
+        font-size:
+            clamp(
+                22px,
+                7vw,
+                28px
+            );
+    }
+
+    .section-heading p,
+    .basket-header p,
+    .ratings-section .section-heading p {
+        font-size: 13px;
+    }
+
+
+    /* Forms */
+
+    .form-row,
+    .search-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .form-row input,
+    .form-row select,
+    .search-row input,
+    .search-row select {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .form-row button,
+    .search-row button {
+        width: 100%;
+    }
+
+
+    /* Cake cards */
+
+    .cake-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .cake-card {
+        width: 100%;
+        padding: 16px;
+    }
+
+    .cake-card h3 {
+        font-size: 20px;
+    }
+
+    .cake-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .cake-actions button {
+        width: 100%;
+    }
+
+
+    /* Basket */
+
+    .basket-section {
+        padding: 15px;
+    }
+
+    .basket-header h2 {
+        font-size: 24px;
+    }
+
+    .basket-table-wrapper,
+    .table-container {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .basket-table-wrapper table,
+    .table-container table {
+        min-width: 600px;
+    }
+
+
+    /* Checkout */
+
+    .checkout-box {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .checkout-box input {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .checkout-card {
+        padding: 16px;
+    }
+
+    .checkout-button {
+        width: 100%;
+        max-width: 100%;
+
+        font-size: 15px;
+        padding: 14px 18px;
+    }
+
+
+    /* Ratings */
+
+    .rating-layout {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .rating-form-card,
+    .rating-summary-card {
+        padding: 18px;
+    }
+
+    .rating-card-heading {
+        align-items: flex-start;
+    }
+
+    .rating-card-heading h3 {
+        font-size: 18px;
+    }
+
+    .rating-list {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Notifications */
+
+    .notification-heading {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .notification-count {
+        align-self: flex-start;
+    }
+
+    .notification-card {
+        padding: 14px;
+        gap: 10px;
+    }
+
+    .notification-header {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+
+    /* Footer */
+
+    footer {
+        padding:
+            20px 12px;
+
+        font-size: 12px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   <= 380px
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .hero-content {
+        width: calc(100% - 16px);
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .hero-tagline {
+        font-size: 21px;
+    }
+
+    .hero-subtitle {
+        font-size: 13px;
+    }
+
+    .hero-feature {
+        padding: 10px 12px;
+    }
+
+    .section,
+    .basket-section,
+    .customer-reviews-section,
+    .ratings-section {
+        width: calc(100% - 12px);
+    }
+
+    .section,
+    .basket-section,
+    .ratings-section {
+        padding: 12px;
+    }
+
+    .rating-form-card,
+    .rating-summary-card {
+        padding: 14px;
+    }
+
+    .checkout-card {
+        padding: 14px;
+    }
+
+    .cake-card {
+        padding: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   LANDSCAPE MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) and (orientation: landscape) {
+
+    .hero-content {
+        padding-top: 35px;
+        padding-bottom: 40px;
+    }
+
+    .hero-features {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .cake-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+   ========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+    .hero-feature:hover,
+    .cake-card:hover,
+    .rating-card:hover,
+    .notification-card:hover {
+        transform: none;
+    }
+
+    button {
+        min-height: 42px;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 16px;
+    }
+
+}
+
+
+/* =========================================================
+   SAFETY AGAINST LONG TEXT / URLs
+   ========================================================= */
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+strong,
+small,
+label,
+td,
+th {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   FINAL WIDTH SAFETY
+   ========================================================= */
+
+#cakeContainer,
+#basketBody,
+#notificationContainer,
+.rating-list,
+.rating-layout,
+.checkout-form,
+.form-row,
+.search-row {
+    min-width: 0;
+    max-width: 100%;
+}

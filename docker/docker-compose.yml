@@ -1,0 +1,233 @@
+services:
+
+  # MySQL Database
+
+  mysql:
+    image: mysql:8.0
+    container_name: cake-delight-mysql
+
+    environment:
+      MYSQL_ROOT_PASSWORD: "Amarjeet@9798"
+
+    ports:
+      - "3307:3306"
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ../database/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-h",
+          "localhost",
+          "-u",
+          "root",
+          "-pAmarjeet@9798"
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 20s
+
+
+  # RabbitMQ Message Broker
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: cake-delight-rabbitmq
+
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin123
+
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 20s
+
+
+  # Catalog Service
+
+  catalog-service:
+    build:
+      context: ../cake-catalog-service
+      dockerfile: Dockerfile
+
+    container_name: cake-delight-catalog
+
+    restart: always
+
+    environment:
+      PORT: 5001
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: cake_catalog_db
+      DB_USER: root
+      DB_PASSWORD: "Amarjeet@9798"
+
+    ports:
+      - "5001:5001"
+
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+
+  # Order Service
+
+  order-service:
+    build:
+      context: ../order-service
+      dockerfile: Dockerfile
+
+    container_name: cake-delight-order
+
+    restart: always
+
+    environment:
+      PORT: 5002
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: order_db
+      DB_USER: root
+      DB_PASSWORD: "Amarjeet@9798"
+      RABBITMQ_URL: amqp://admin:admin123@rabbitmq:5672
+
+    ports:
+      - "5002:5002"
+
+    depends_on:
+      mysql:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+
+
+  # Rating Service
+
+  rating-service:
+    build:
+      context: ../rating-service
+      dockerfile: Dockerfile
+
+    container_name: cake-delight-rating
+
+    restart: always
+
+    environment:
+      PORT: 5003
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: rating_db
+      DB_USER: root
+      DB_PASSWORD: "Amarjeet@9798"
+
+    ports:
+      - "5003:5003"
+
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+
+  # Notification Service
+
+  notification-service:
+    build:
+      context: ../notification-service
+      dockerfile: Dockerfile
+
+    container_name: cake-delight-notification
+
+    restart: always
+
+    environment:
+      PORT: 5004
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: notification_db
+      DB_USER: root
+      DB_PASSWORD: "Amarjeet@9798"
+
+      RABBITMQ_URL: amqp://admin:admin123@rabbitmq:5672
+
+      MAIL_HOST: smtp.gmail.com
+      MAIL_PORT: "465"
+      MAIL_SECURE: "true"
+      MAIL_USER: "ak7462514@gmail.com"
+      MAIL_PASSWORD: "ctjwqxgdzzbyqydt"
+      MAIL_FROM: "ak7462514@gmail.com"
+
+    ports:
+      - "5004:5004"
+
+    depends_on:
+      mysql:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+
+
+  # API Gateway
+
+  api-gateway:
+    build:
+      context: ../api-gateway
+      dockerfile: Dockerfile
+
+    container_name: cake-delight-gateway
+
+    restart: always
+
+    environment:
+      PORT: 5000
+      CATALOG_SERVICE: http://catalog-service:5001
+      ORDER_SERVICE: http://order-service:5002
+      RATING_SERVICE: http://rating-service:5003
+      NOTIFICATION_SERVICE: http://notification-service:5004
+
+    ports:
+      - "5000:5000"
+
+    depends_on:
+      catalog-service:
+        condition: service_started
+      order-service:
+        condition: service_started
+      rating-service:
+        condition: service_started
+      notification-service:
+        condition: service_started
+
+
+  # Frontend
+
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+
+    container_name: cake-delight-frontend
+
+    ports:
+      - "8080:80"
+
+    depends_on:
+      api-gateway:
+        condition: service_started
+
+
+  # Volumes
+
+volumes:
+  mysql_data:

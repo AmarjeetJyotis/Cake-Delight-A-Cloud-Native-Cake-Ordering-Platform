@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Cake Delight | Cloud-Native Microservices</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍰</text></svg>">
+
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HERO / PROJECT INTRODUCTION
+    ====================================================== -->
+
+    <header class="hero-header">
+
+        <div class="hero-decoration hero-decoration-one">✦</div>
+        <div class="hero-decoration hero-decoration-two">✦</div>
+        <div class="hero-decoration hero-decoration-three">♡</div>
+
+        <div class="hero-content">
+
+            <!-- Project Type -->
+            <div class="project-badge">
+                <span class="badge-dot"></span>
+                Cloud-Native Microservices Engineering
+            </div>
+
+            <!-- Project Name -->
+            <h1 class="hero-title">
+                <span class="cake-logo">🍰</span>
+                Cake Delight
+            </h1>
+
+            <!-- Main Description -->
+            <p class="hero-tagline">
+                A Cloud-Native Cake Ordering Platform
+            </p>
+
+            <p class="hero-subtitle">
+                Browse cakes, manage your basket, complete checkout,
+                submit ratings and receive order confirmation notifications.
+            </p>
+
+            <!-- =================================================
+                 CORE BUSINESS CAPABILITIES
+            ================================================== -->
+
+            <div class="hero-features">
+
+                <div class="hero-feature">
+
+                    <span>🍰</span>
+
+                    <div>
+                        <strong>Browse & Filter</strong>
+                        <small>Find your perfect cake</small>
+                    </div>
+
+                </div>
+
+
+                <div class="hero-feature">
+
+                    <span>🛒</span>
+
+                    <div>
+                        <strong>Basket & Checkout</strong>
+                        <small>Manage your order</small>
+                    </div>
+
+                </div>
+
+
+                <div class="hero-feature">
+
+                    <span>⭐</span>
+
+                    <div>
+                        <strong>Ratings & Reviews</strong>
+                        <small>Share your experience</small>
+                    </div>
+
+                </div>
+
+
+                <div class="hero-feature">
+
+                    <span>🔔</span>
+
+                    <div>
+                        <strong>Order Notifications</strong>
+                        <small>Event-driven updates</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TECHNOLOGY / ARCHITECTURE
+            ================================================== -->
+
+            <div class="architecture-tags">
+
+                <span>Microservices</span>
+                <span>REST APIs</span>
+                <span>Docker</span>
+                <span>Event-Driven Messaging</span>
+
+            </div>
+
+
+            <!-- =================================================
+                 MAIN CTA
+            ================================================== -->
+
+            <a href="#available-cakes"
+               class="hero-cta">
+
+                Explore Cakes
+
+                <span>↓</span>
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN APPLICATION CONTENT
+    ====================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             ADD NEW CAKE
+        ================================================== -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>🍰 Add New Cake</h2>
+
+                    <p>
+                        Add a new cake product to the catalog.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <input
+                    type="text"
+                    id="newCakeName"
+                    placeholder="Cake Name"
+                    aria-label="Cake name"
+                >
+
+                <input
+                    type="text"
+                    id="newCakeDescription"
+                    placeholder="Description"
+                    aria-label="Cake description"
+                >
+
+                <input
+                    type="text"
+                    id="newCakeCategory"
+                    placeholder="Category"
+                    aria-label="Cake category"
+                >
+
+                <input
+                    type="number"
+                    id="newCakePrice"
+                    placeholder="Price"
+                    min="0"
+                    aria-label="Cake price"
+                >
+
+            </div>
+
+
+            <div class="form-row">
+
+                <select
+                    id="newCakeAvailability"
+                    aria-label="Cake availability"
+                >
+
+                    <option value="true">
+                        Available
+                    </option>
+
+                    <option value="false">
+                        Not Available
+                    </option>
+
+                </select>
+
+
+                <button
+                    type="button"
+                    onclick="addCake()"
+                >
+                    Add Cake
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SEARCH / FILTER CAKES
+        ================================================== -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>🔎 Search Cakes</h2>
+
+                    <p>
+                        Find cakes using name, category or price range.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="search-row">
+
+                <input
+                    type="text"
+                    id="cakeName"
+                    placeholder="Cake Name"
+                    aria-label="Search by cake name"
+                >
+
+
+                <input
+                    type="text"
+                    id="cakeCategory"
+                    placeholder="Category"
+                    aria-label="Search by category"
+                >
+
+
+                <input
+                    type="number"
+                    id="minPrice"
+                    placeholder="Min Price"
+                    aria-label="Minimum price"
+                >
+
+
+                <input
+                    type="number"
+                    id="maxPrice"
+                    placeholder="Max Price"
+                    aria-label="Maximum price"
+                >
+
+
+                <button
+                    type="button"
+                    onclick="filterCakes()"
+                >
+                    Search
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="clearSearch()"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             AVAILABLE CAKES
+        ================================================== -->
+
+        <section
+            class="section"
+            id="available-cakes"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>🍰 Available Cakes</h2>
+
+                    <p>
+                        Choose a cake and add it to your basket.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="cakeContainer"
+                class="cake-grid"
+            >
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SHOPPING BASKET
+        ================================================== -->
+
+        <section class="basket-section">
+
+            <div class="basket-header">
+
+                <div>
+
+                    <h2>🛒 Shopping Basket</h2>
+
+                    <p>
+                        Review your selected cakes before placing your order.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Basket Table -->
+
+            <div class="basket-table-wrapper">
+
+                <table class="basket-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Cake</th>
+
+                            <th>Price</th>
+
+                            <th>Quantity</th>
+
+                            <th>Total</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="basketBody">
+
+                        <tr>
+
+                            <td colspan="5">
+
+                                Basket is Empty
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ORDER SUMMARY
+            ================================================== -->
+
+            <div class="order-summary">
+
+                <div class="summary-title">
+
+                    <span>Order Summary</span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>Items</span>
+
+                    <strong id="basketItemCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-divider"></div>
+
+
+                <div class="summary-total">
+
+                    <span>Grand Total</span>
+
+                    <strong id="grandTotal">
+                        ₹0.00
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CUSTOMER INFORMATION
+            ================================================== -->
+
+            <div class="checkout-card">
+
+                <div class="checkout-heading">
+
+                    <div class="checkout-icon">
+                        🛍️
+                    </div>
+
+
+                    <div>
+
+                        <h3>Customer Information</h3>
+
+                        <p>
+                            Enter your details to complete the order.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="checkout-form">
+
+
+                    <!-- Customer Name -->
+
+                    <div class="form-group">
+
+                        <label for="customerName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customerName"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                        >
+
+                    </div>
+
+
+
+                    <!-- Email -->
+
+                    <div class="form-group">
+
+                        <label for="customerEmail">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="customerEmail"
+                            placeholder="Enter your email address"
+                            autocomplete="email"
+                        >
+
+                    </div>
+
+
+
+                    <!-- Delivery Address -->
+
+                    <div class="form-group full-width">
+
+                        <label for="deliveryAddress">
+                            Delivery Address
+                        </label>
+
+                        <textarea
+                            id="deliveryAddress"
+                            placeholder="Enter your complete delivery address"
+                            rows="3"
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Checkout -->
+
+                <div class="checkout-action">
+
+                    <button
+                        type="button"
+                        class="checkout-button"
+                        onclick="checkout()"
+                    >
+                        🛒 Place Order & Checkout
+                    </button>
+
+
+                    <p class="checkout-note">
+                        Your order will be confirmed after successful checkout.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CUSTOMER RATINGS
+        ================================================== -->
+
+        <section class="ratings-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>⭐ Customer Feedback & Ratings</h2>
+
+                    <p>
+                        Share your experience and help other customers
+                        choose their perfect cake.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="rating-layout">
+
+
+                <!-- =================================================
+                     SUBMIT RATING
+                ================================================== -->
+
+                <div class="rating-form-card">
+
+                    <div class="rating-card-heading">
+
+                        <div class="rating-icon">
+                            ✍️
+                        </div>
+
+
+                        <div>
+
+                            <h3>Submit Your Review</h3>
+
+                            <p>
+                                Tell us what you think about the cake.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Cake ID -->
+
+                    <div class="rating-field">
+
+                        <label for="ratingCakeId">
+                            Cake ID
+                        </label>
+
+                        <input
+                            type="number"
+                            id="ratingCakeId"
+                            min="1"
+                            placeholder="Enter cake ID"
+                            value=""
+                            autocomplete="off"
+                        >
+
+                        <small>
+                            Enter the ID of the cake you want to rate.
+                        </small>
+
+                    </div>
+
+
+
+                    <!-- User Name -->
+
+                    <div class="rating-field">
+
+                        <label for="userName">
+                            Your Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="userName"
+                            placeholder="Enter your name"
+                        >
+
+                    </div>
+
+
+
+                    <!-- Rating -->
+
+                    <div class="rating-field">
+
+                        <label for="rating">
+                            Your Rating
+                        </label>
+
+                        <select id="rating">
+
+                            <option value="">
+                                Select your rating
+                            </option>
+
+                            <option value="5">
+                                ⭐⭐⭐⭐⭐ — Excellent
+                            </option>
+
+                            <option value="4">
+                                ⭐⭐⭐⭐ — Very Good
+                            </option>
+
+                            <option value="3">
+                                ⭐⭐⭐ — Good
+                            </option>
+
+                            <option value="2">
+                                ⭐⭐ — Average
+                            </option>
+
+                            <option value="1">
+                                ⭐ — Poor
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- Review -->
+
+                    <div class="rating-field">
+
+                        <label for="review">
+                            Your Review
+                        </label>
+
+                        <textarea
+                            id="review"
+                            rows="5"
+                            placeholder="Tell us about the taste, quality and your experience..."
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <!-- Submit -->
+
+                    <button
+                        type="button"
+                        class="submit-rating-btn"
+                        onclick="submitRating()"
+                    >
+                        ⭐ Submit Rating
+                    </button>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     RATING SUMMARY
+                ================================================== -->
+
+                <div class="rating-summary-card">
+
+                    <div class="rating-card-heading">
+
+                        <div class="rating-icon summary-icon">
+                            ⭐
+                        </div>
+
+
+                        <div>
+
+                            <h3>Rating Summary</h3>
+
+                            <p>
+                                See what customers think about this cake.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="rating-score">
+
+                        <div class="big-rating">
+                            ⭐
+                        </div>
+
+
+                        <div>
+
+                            <div
+                                id="averageRating"
+                                class="average-rating-value"
+                            >
+                                Average Rating : 0
+                            </div>
+
+
+                            <div class="rating-caption">
+                                Customer satisfaction score
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <button
+                        type="button"
+                        class="average-rating-btn"
+                        onclick="loadAverageRating()"
+                    >
+                        ⭐ View Average Rating
+                    </button>
+
+
+
+                    <div class="rating-info">
+
+                        <div class="info-item">
+
+                            <span>⭐</span>
+
+                            <div>
+
+                                <strong>1–5 Stars</strong>
+
+                                <small>
+                                    Rate your experience
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="info-item">
+
+                            <span>💬</span>
+
+                            <div>
+
+                                <strong>Customer Reviews</strong>
+
+                                <small>
+                                    Read feedback from others
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="info-item">
+
+                            <span>❤️</span>
+
+                            <div>
+
+                                <strong>Your Opinion Matters</strong>
+
+                                <small>
+                                    Help improve Cake Delight
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CUSTOMER REVIEWS
+            ================================================== -->
+
+            <div class="customer-reviews-section">
+
+                <div class="reviews-heading">
+
+                    <div>
+
+                        <h3>💬 Customer Reviews</h3>
+
+                        <p>
+                            See what other Cake Delight customers are saying.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="ratingList"
+                    class="rating-list"
+                >
+
+                    <div class="reviews-empty">
+
+                        <span>💬</span>
+
+                        <strong>
+                            No ratings or reviews found.
+                        </strong>
+
+                        <small>
+                            Be the first customer to share your experience.
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             NOTIFICATIONS
+        ================================================== -->
+
+        <section class="section">
+
+            <div class="notification-heading">
+
+                <div>
+
+                    <h2>🔔 Notifications</h2>
+
+                    <p>
+                        Stay updated with your latest Cake Delight orders.
+                    </p>
+
+                </div>
+
+
+                <span
+                    id="notificationCount"
+                    class="notification-count"
+                >
+                    0 notifications
+                </span>
+
+            </div>
+
+
+
+            <button
+                type="button"
+                onclick="loadNotifications()"
+            >
+                Refresh Notifications
+            </button>
+
+
+
+            <div
+                id="notificationContainer"
+            >
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="site-footer">
+
+        <div>
+            🍰 Cake Delight
+        </div>
+
+        <p>
+            Cloud-Native Microservices Engineering Capstone
+        </p>
+
+        <span>
+            Catalog • Orders • Ratings • Notifications
+        </span>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
