@@ -29,7 +29,7 @@ docker info
 > If this command errors out, Docker Desktop is not running — start it first, then retry.
 **Step 3 — Build and start the application (detached mode):**
 ```powershell
-docker compose -f docker/docker-compose.yml up --build -d
+docker compose --env-file docker/.env -f docker/docker-compose.yml up --build -d
 ```
 **Step 4 — Verify all containers are up:**
 ```powershell
